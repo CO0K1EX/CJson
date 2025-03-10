@@ -1,22 +1,25 @@
 #include <iostream>
-#include "Client.h"
+#include <Windows.h>
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/json_parser.hpp>
+
+#include "Client.h"
+
+Client client;
 
 std::string getFieldFromJson(std::string json, std::string field);
 
 int main()
 {
-	system("title CJson");
+	SetConsoleTitleW(L"CJson");
 	std::cout << "\n CJson version 1.0.0 || Creator By CO0K1E" << std::endl << std::endl;
 	std::cout << "\n Example ---> ip-api.com" << std::endl;
-	std::string inputs;
+	std::string user_input;
 	std::cout << "\n Input: ";
-	std::cin >> inputs;
-	Client client;
-	std::string res = client.getResponse(inputs);
+	std::cin >> user_input;
+	
+	std::string res = client.getResponse(user_input);
 
-	Sleep(2300);
 	system("cls");
 
 	std::cout << "Result:" << std::endl << std::endl;
